@@ -1,15 +1,15 @@
 # How to install
 Install swagger globally first
-'''bash
+``` bash
 npm install swagger -g
-'''
+```
 
 Install the rest of the packages with
-'''bash
+``` bash
 npm install
-'''
+```
 
 Use swagger to start the project
-'''bash
+``` bash
 swagger project start
-''' 
+``` 
