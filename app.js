@@ -23,6 +23,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
 });
 
 var mongoose = require('mongoose');
+
 require('./models/Movies');
 require('./models/Actors');
 

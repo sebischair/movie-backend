@@ -40,6 +40,7 @@ module.exports = {
 function query(req, res) {
     // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
 
+
     Actor.find(function (err, actors) {
         if (err) {
             return next(err);

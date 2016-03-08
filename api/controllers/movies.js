@@ -15,6 +15,7 @@ var util = require('util');
 var mongoose = require('mongoose');
 var Movie = mongoose.model('Movie');
 
+
 /*
  Once you 'require' a module you can reference the things that it exports.  These are defined in module.exports.
 
@@ -33,7 +34,7 @@ module.exports = {
     createMovie: createMovie,
     updateMovie:updateMovie,
     deleteMovie: deleteMovie,
-    getActors: getActors
+    getActors: getActors,
 };
 
 /*
@@ -57,12 +58,10 @@ function queryMovies(req, res) {
 function getMovie(req, res) {
     // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
 
-    Movie.findById(req.swagger.params.id.value ,function (err, movie) {
-
+    Movie.findOne({ 'id':req.swagger.params.id.value } ,function (err, movie) {
         if (err) {
             res.status(400).send(err);
         }
-
         res.json(movie);
     });
 }
@@ -114,14 +113,12 @@ function deleteMovie(req, res) {
 function getActors(req, res) {
     // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
 
-    Movie.findById(req.swagger.params.id.value)
-        .populate('actors')
-        .exec(function (err, movie) {
+    Movie.findOne({'id': req.swagger.params.id.value}, function (err, movie) {
 
         if (err) {
             res.status(400).send(err);
         }
-
         res.json(movie.actors);
     });
 }
+

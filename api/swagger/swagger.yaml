@@ -133,7 +133,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: The ID of the movie
+          description: The ID of the actor
           required: true
           type: string
       responses:
@@ -149,11 +149,12 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+
   /actors:
     x-swagger-router-controller: actors
     get:
       description: Returns all actors
-      operationId: queryActors
+      operationId: getActors
       responses:
         "200":
           description: Success
@@ -195,6 +196,3 @@ definitions:
     properties:
       name:
         type: string
-      birthdate:
-        type: string
-        format: datetime
